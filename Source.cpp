@@ -71,4 +71,3 @@ void should_return_inverse_string ()
 	}
 	puts(inverse_string);
 }
-
