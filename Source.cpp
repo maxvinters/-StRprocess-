@@ -1,19 +1,17 @@
 #include <stdio.h>
-#include <locale.h>
 char str[255];
 int scopes(char *str1);
 int stringLength (char *string);
 int main(void){
-	setlocale(LC_ALL,"rus");
-	printf("Введите строку: ");
+	printf("Input string: ");
 	gets(str);
 	switch (scopes(str))
 	{
-		case -1: printf("Во введенной строке нет скобок.\n"); break;
-		case 0: printf("Баланс скобок во введенной строке нарушен.\n"); break;
-		case 1: printf("Баланс скобок во введенной строке выдержан.\n");
+		case -1: printf("There are no brackets in the input string.\n"); break;
+		case 0: printf("Numer of open and closed brackets doesn't match.\n"); break;
+		case 1: printf("Numer of open and closed brackets is the same.\n");
 	}
-	printf("Длина введенной строки - %d символов.\n",stringLength(str));
+	printf("Length of input string is %d characters.\n",stringLength(str));
 	return 0;
 }
 int stringLength(char *string){
