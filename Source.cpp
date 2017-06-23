@@ -4,7 +4,25 @@
 
 void should_return_inverse_string ();
 char str[255];
-int scopes(char str1[255]){
+int scopes(char *str1);
+int stringLength (char *string);
+
+int main(void){
+	printf("Input string: ");
+	gets(str);
+	switch (scopes(str))
+	{
+		case -1: printf("There are no brackets in the input string.\n"); break;
+		case 0: printf("Numer of open and closed brackets doesn't match.\n"); break;
+		case 1: printf("Numer of open and closed brackets is the same.\n");
+	}
+	printf("Length of input string is %d characters.\n",stringLength(str));
+	printf("Now the inverce_string function will execute...\n");
+	should_return_inverse_string();
+	return 0;
+}
+
+int scopes(char *str1){
 	bool any = false;
 	int r = 0, s = 0, f = 0;
 	for (int i = 0; str1[i] != '\0'; i++){
@@ -45,15 +63,13 @@ int scopes(char str1[255]){
 		return -1;
 	}
 }
+}
 
-int main(void){
-	
-	gets(str);
-	int res = scopes(str);
-	printf("res: %d\n%s\n", res, str);
-	printf("Now the inverce_string function will execute...\n");
-	should_return_inverse_string();
-	return 0;
+int stringLength(char *string){
+	int kol;
+	for (kol=0;;kol++)
+		if (string[kol]=='\0') break;
+	return kol;
 }
 
 void should_return_inverse_string ()
@@ -71,4 +87,3 @@ void should_return_inverse_string ()
 	}
 	puts(inverse_string);
 }
-
